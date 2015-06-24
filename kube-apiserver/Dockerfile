@@ -1,6 +1,7 @@
-FROM fedora:22
+FROM fedora
 MAINTAINER Solly Ross <sross@redhat.com>
 
-RUN yum update -y && yum install -y kubernetes-master
+RUN yum -y update && yum clean all
+RUN yum install -y kubernetes-master && yum clean all
 
 ENTRYPOINT ["/usr/bin/kube-apiserver"]
